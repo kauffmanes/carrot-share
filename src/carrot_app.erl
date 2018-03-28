@@ -8,12 +8,16 @@ start(_Type, _Args) ->
 
 	Dispatch = cowboy_router:compile([
 	  {'_', [
-	  	{"/", cowboy_static, {priv_dir, carrot-share, "static/index.html"}}
+	  	{"/", cowboy_static, {priv_dir, carrot, "static/index.html", [
+	  		{mimetypes, cow_mimetypes, all}
+	  	]}}
 	  ]}
 	]),
 	{ok, _} = cowboy:start_clear(http,
 	  [{port, 8080}],
-	  #{env => #{dispatch => Dispatch}}
+	  #{env => #{dispatch => Dispatch},
+	  	middlewares => [cowboy_router, cowboy_handler]
+	  }
 	),
 	carrot_sup:start_link().
 
