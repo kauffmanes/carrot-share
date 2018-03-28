@@ -10,7 +10,7 @@ start(_Type, _Args) ->
 	% ]),
 
 	Dispatch = cowboy_router:compile([
-		{'_', [priv_file, carrot, "static/index.html"]}
+		{'_', [{"/", {priv_file, ?MODULE, "static/index.html"}}]}
 	]),
 	{ok, _} = cowboy:start_clear(my_http_listener,
 	  [{port, 8080}],
