@@ -61,17 +61,6 @@ will send the current demo code as a message to the server via the connection. T
 2. Student clicks into chatbar, types a question, and submits
 3. This appears on the chat window shared by everyone watching the demo
 
-
-# Out of Scope Enhancements
-- create folders and share these at permission levels (e.g. share a folder with a specific class so they can see your demos)
-- flag a demo as "Live" if the Professor is an active connection
-- create a share button that sends the URI to named email addresses
-- ability to save demos to a unique username - or use OAuth to create an account with a school ID?
-- charge schools for licenses
-- a toggle switch for if you want your demo to be live/private/hidden, etc
-
-
-
 # Erlang web server
 
 ## To install
@@ -129,3 +118,38 @@ $ rebar3 new app carrot
 ===> Writing carrot/LICENSE
 ===> Writing carrot/README.md
 ```
+
+## Install erlang.mk - alternative to Rebar?
+
+## To run/create release
+make run
+
+## Cowboy Notes
+A listener is a set of processes that listens on a port for new connections. Incoming connections get handled by 
+Cowboy. Two types of listeners are provided: clear TCP connections, and secure TLS. Both support HTTP 1 & 2.
+
+## Ports
+Unix won't let you run a non-privileged service on a port < 1024, so I am forwarding my port 80 to 8080, where my project is running using nginx proxy_pass
+
+## Site Security
+```
+ sudo ufw reject out http
+
+```
+
+
+# Frontend
+Basic routing is all handled on the frontend using the React framework. 
+
+## To format code
+`$ prettier --single-quote --print-width=120 --write ClientApp.jsx`
+
+
+# Out of Scope Enhancements
+- create folders and share these at permission levels (e.g. share a folder with a specific class so they can see your demos)
+- flag a demo as "Live" if the Professor is an active connection
+- create a share button that sends the URI to named email addresses
+- ability to save demos to a unique username - or use OAuth to create an account with a school ID?
+- charge schools for licenses
+- a toggle switch for if you want your demo to be live/private/hidden, etc
+- give control to people connected so that they can code
