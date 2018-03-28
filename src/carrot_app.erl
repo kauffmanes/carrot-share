@@ -13,9 +13,7 @@ start(_Type, _Args) ->
 	]),
 	{ok, _} = cowboy:start_clear(http,
 	  [{port, 8080}],
-	  #{env => #{dispatch => Dispatch},
-	  	middlewares => [cowboy_router, cowboy_handler]
-	  }
+	  #{env => #{dispatch => Dispatch}}
 	),
 	carrot_sup:start_link().
 
