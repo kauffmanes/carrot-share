@@ -14,12 +14,12 @@
 %% API
 %%====================================================================
 start(_StartType, _StartArgs) ->
-	Dispatch = cowboy_router:compile([
-		{'_', [{ "/", toppage_handler, []}]}
-	]),
-	{ok, _} = cowboy:start_clear(http, [{port, 8080}],
-		#{env => #{dispatch => Dispatch}	
-	}),
+	% Dispatch = cowboy_router:compile([
+	% 	{'_', [{ "/", toppage_handler, []}]}
+	% ]),
+	% {ok, _} = cowboy:start_clear(http, [{port, 8080}],
+	% 	#{env => #{dispatch => Dispatch}	
+	% }),
 	carrot_sup:start_link().
 
 %%--------------------------------------------------------------------
