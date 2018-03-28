@@ -7,8 +7,7 @@
 start(_Type, _Args) ->
 
 	Dispatch = cowboy_router:compile([
-	  {'_', [{"/hello", hello_handler, []}]},
-	  {'_', [{"/", {priv_file, ?MODULE, "static/index.html"}}]}
+	  {'_', [{"/hello", hello_handler, []}, {"/", {priv_file, ?MODULE, "static/index.html"}}]}
 	]),
 
 	{ok, _} = cowboy:start_clear(my_http_listener,
