@@ -136,6 +136,8 @@ To start the application forever:
 
 If you start the process in the bg and then can't figure out how to kill it, attach to it and kill the erl shell
 `./_rel/carrot_release/bin/carrot_release attach`
+^^ Actually this didn't work because of the -heart arg. I had to power down
+the entire droplet
 
 ## Site Security
 ```
