@@ -131,10 +131,11 @@ Cowboy. Two types of listeners are provided: clear TCP connections, and secure T
 ## Ports
 Unix won't let you run a non-privileged service on a port < 1024, so I am forwarding my port 80 to 8080, where my project is running using nginx proxy_pass
 
+To start the application forever: `$ ./_rel/carrot_release/bin/carrot_release start` - has to be a better way!
+
 ## Site Security
 ```
  sudo ufw reject out http
-
 ```
 
 
