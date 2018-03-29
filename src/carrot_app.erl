@@ -8,7 +8,7 @@ start(_Type, _Args) ->
 
 	Dispatch = cowboy_router:compile([
 	  {'_', [
-	  	{"/", cowboy_static, {priv_file, carrot, "index.html"}}
+	  	{"/[...]", cowboy_static, {priv_file, carrot, ""}}
 	  ]}
 	]),
 	{ok, _} = cowboy:start_clear(http,
